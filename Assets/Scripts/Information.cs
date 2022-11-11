@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +5,10 @@ public class Information : MonoBehaviour
 {
     private GameObject display;
     private GameObject moreUICanvas;
-    private GameObject displayExit;
     private GameObject zoomInButton;
     private GameObject zoomOutButton;
     private Displays displaysScript;
+    private QRCode qrCodeScript;
     private Button button;
     private Button exitButton;
 
@@ -23,6 +21,7 @@ public class Information : MonoBehaviour
         zoomOutButton = GameObject.Find("UICanvas").transform.GetChild(2).gameObject;
         moreUICanvas = GameObject.Find("More UI Canvas");
         displaysScript = FindObjectOfType<Displays>();
+        qrCodeScript = FindObjectOfType<QRCode>();
         button = GetComponent<Button>();
         button.onClick.AddListener(OnClick);
     }
@@ -37,6 +36,7 @@ public class Information : MonoBehaviour
         zoomInButton.SetActive(true);
         zoomOutButton.SetActive(true);
         displaysScript.SetInformation(GetImageIndex());
+        qrCodeScript.SetQRCode(GetImageIndex());
         moreUICanvas.SetActive(false);
     }
 }

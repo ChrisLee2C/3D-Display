@@ -27,9 +27,9 @@ public class QRCode : MonoBehaviour
         qrCodeTexture.texture = textures[index - 1];
     }
 
-    public void SetInformation(int index)
+    public void SetQRCode(int index)
     {
-        qrCodeTexture = GameObject.Find("UICanvas").transform.GetChild(0).transform.GetChild(0).transform.GetChild(0).gameObject.GetComponent<RawImage>();
+        qrCodeTexture = GameObject.Find("UICanvas").transform.GetChild(0).transform.GetChild(0).GetChild(0).gameObject.GetComponent<RawImage>();
         qrCodeTexture.texture = textures[index - 1];
     }
 

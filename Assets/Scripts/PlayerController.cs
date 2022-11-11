@@ -22,21 +22,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            SetDestinationToMousePosition();
-        }
+        if (Input.GetMouseButtonDown(1)) { SetDestinationToMousePosition(); }
     }
 
-    public void NewDestination(Transform target)
-    {
-        navMeshAgent.SetDestination(target.position);
-    }
+    public void NewDestination(Transform target) { navMeshAgent.SetDestination(target.position); }
 
-    public void SetCurrentDestination(int current)
-    {
-        currentDestination = current;
-    }
+    public void SetCurrentDestination(int current) { currentDestination = current; }
 
     public void NextDestination(int next){
         if (currentDestination + next < 0)
@@ -66,9 +57,6 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
-        {
-            navMeshAgent.SetDestination(hit.point);
-        }
+        if (Physics.Raycast(ray, out hit)) { navMeshAgent.SetDestination(hit.point); }
     }
 }

@@ -5,11 +5,6 @@ using UnityEngine.UI;
 
 public class Displays : MonoBehaviour
 {
-    //Select the gameObject with the script on it
-    //Click on little lock icon in the inspector, at the top right corner
-    //Click on the first image in your asset
-    //Hold SHIFT key, and click on the last image you want to select. All the images in between should be selected.
-    //Click and drag the list into the Images field in the inspector.
     public List<Texture2D> sprites;
     private RawImage displaySprites;
     private DisplayButton[] buttons;
@@ -24,11 +19,11 @@ public class Displays : MonoBehaviour
         }
     }
 
-    private int GetImageIndex(GameObject button) { return button.transform.parent.parent.GetSiblingIndex(); }
+    private int GetImageIndex(GameObject button) => button.transform.parent.parent.GetSiblingIndex(); 
 
     private void SetImage(int index)
     {
-        displaySprites = buttons[index - 1].transform.parent.GetChild(0).GetComponent<RawImage>();
+        displaySprites = buttons[index - 1].transform.parent.parent.GetChild(0).GetComponentInChildren<RawImage>();
         displaySprites.texture = sprites[index - 1];
     }
 
